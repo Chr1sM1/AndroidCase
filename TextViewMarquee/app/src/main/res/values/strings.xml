@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Marquee</string>
+    <string name="tv_one">HelloWorld HelloWorld HelloWorld HelloWorld HelloWorld HelloWorld</string>
+</resources>
