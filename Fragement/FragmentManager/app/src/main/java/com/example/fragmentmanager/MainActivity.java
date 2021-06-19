@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -30,6 +31,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 bundle.putString("message","Android bundle study");
                 BlankFragment bf = new BlankFragment();
                 bf.setArguments(bundle);
+                bf.setFragmentCallback(new IFragmentCallback() {
+                    @Override
+                    public void sendMsgToActivity(String msg) {
+                        Toast.makeText(MainActivity.this,msg,Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public String getMsgFromActivity(String msg) {
+                        return "hello,i am from activity";
+                    }
+                });
                 replaceFragment(bf);
                 break;
 
