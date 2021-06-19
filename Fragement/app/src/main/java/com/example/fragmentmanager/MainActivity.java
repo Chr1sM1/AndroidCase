@@ -26,7 +26,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_change:
-                replaceFragment(new BlankFragment());
+                Bundle bundle = new Bundle();
+                bundle.putString("message","Android bundle study");
+                BlankFragment bf = new BlankFragment();
+                bf.setArguments(bundle);
+                replaceFragment(bf);
                 break;
 
             case R.id.btn_replace:
@@ -38,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.frameL,fragment);
+        transaction.addToBackStack(null);
         transaction.commit();
     }
 }
